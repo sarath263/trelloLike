@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Trello Clone</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="bootstrap/css/bootstrap-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="font_awesome/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="board-layout">
+      <div class="left">
+        <div class="board-text">
+          All Boards
+          <button
+            class="btn btn-default btn-md"
+            data-toggle="modal"
+            data-target="#createModal"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+
+      <div id="boardlists" class="board-lists">
+        <div
+          id="list1"
+          class="board-list"
+          ondrop="dropIt(event)"
+          ondragover="allowDrop(event)"
+        >
+          <div id="t1" class="list-title">
+            To Do
+          </div>
+
+          <div
+            id="card2"
+            class="card"
+            draggable="true"
+            ondragstart="dragStart(event)"
+          >
+            Back up database
+            <i class="fas fa-trash pull-right" onclick="deleteTask(this)"></i>
+            <i
+              class="fas fa-edit pull-right"
+              onclick="createTask(true,this)"
+            ></i>
+          </div>
+          <div
+            id="card3"
+            class="card"
+            draggable="true"
+            ondragstart="dragStart(event)"
+          >
+            Build Lambda function
+            <i class="fas fa-trash pull-right" onclick="deleteTask(this)"></i>
+            <i
+              class="fas fa-edit pull-right"
+              onclick="createTask(true,this)"
+            ></i>
+          </div>
+          <div
+            id="card4"
+            class="card"
+            draggable="true"
+            ondragstart="dragStart(event)"
+          >
+            Work on course content
+            <i class="fas fa-trash pull-right" onclick="deleteTask(this)"></i>
+            <i
+              class="fas fa-edit pull-right"
+              onclick="createTask(true,this)"
+            ></i>
+          </div>
+        </div>
+        <div
+          id="list2"
+          class="board-list"
+          ondrop="dropIt(event)"
+          ondragover="allowDrop(event)"
+        >
+          <div id="t2" class="list-title">
+            In Progress
+          </div>
+          <div
+            id="card1"
+            class="card"
+            draggable="true"
+            ondragstart="dragStart(event)"
+          >
+            Work on article
+            <i class="fas fa-trash pull-right" onclick="deleteTask(this)"></i>
+            <i
+              class="fas fa-edit pull-right"
+              onclick="createTask(true,this)"
+            ></i>
+          </div>
+        </div>
+        <div
+          id="list3"
+          class="board-list"
+          ondrop="dropIt(event)"
+          ondragover="allowDrop(event)"
+        >
+          <div id="t3" class="list-title">
+            Done
+          </div>
+          <div
+            id="card5"
+            class="card"
+            draggable="true"
+            ondragstart="dragStart(event)"
+          >
+            Debug SQL code
+            <i class="fas fa-trash pull-right" onclick="deleteTask(this)"></i>
+            <i
+              class="fas fa-edit pull-right"
+              onclick="createTask(true,this)"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="createModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">
+              Create/Add new task
+            </h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Add to "To Do"
+            <input
+              type="text"
+              class="form-control"
+              id="taskTitle"
+              placeholder="Enter title"
+              onkeyup="validateTitle()"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="createTask()"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JQuery required for bootstrap -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
