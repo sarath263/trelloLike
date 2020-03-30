@@ -26,9 +26,9 @@ function dropIt(ev) {
   } else {
     if (targetEl.className !== "list-title") {
       let holder = targetEl;
-      let holderText = holder.textContent;
-      targetEl.textContent = sourceIdEl.textContent;
-      sourceIdEl.textContent = holderText;
+      let holderText = holder.innerHTML;
+      targetEl.innerHTML = sourceIdEl.innerHTML;
+      sourceIdEl.innerHTML = holderText;
       holderText = "";
     }
   }
