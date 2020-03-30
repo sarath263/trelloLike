@@ -35,7 +35,7 @@ function dropIt(ev) {
 }
 function validateTitle() {
   let title = document.getElementById("taskTitle");
-  if (/^[a-zA-Z ]{2,26}$/.test(title.value)) {
+  if (/^[a-zA-Z0-9 ]{2,26}$/.test(title.value)) {
     title.parentElement.classList.remove("has-error");
     return true;
   } else {
